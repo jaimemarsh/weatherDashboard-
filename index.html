@@ -14,7 +14,6 @@
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assests/style.css" />
 </head>
 
 <body>
@@ -22,20 +21,81 @@
         <div>
             <h1>Weather Dashboard</h1>
         </div>
-        <h1>Search for a City:</h1>
+        <h2>Search for a City:</h2>
         <div id="searchBox">
             <div id="searchBar">
                 <input type="text" class="null" placeholder="Columbus...">
             </div>
-            <div>
+            <div class="">
                 <button type="button" class="btn btn-primary">Search</button>
             </div>
-            <div id="searchHistory"></div>
+            <div id="searchHistoryBox">
+                <ul>
+                    <li><button>Search History Box 1</button></li>
+                    <li><button>Search History Box 2</button></li>
+                    <li><button>Search History Box 3</button></li>
+                    <li><button>Search History Box 4</button></li>
+                    <li><button>Search History Box 5</button></li>
+                </ul>
+            </div>
         </div>
-        <div>
-            <div id="todayBox"> </div>
-            <div id="forecastBox"></div>
-        </div>
+        <section>
+            <div>
+                <div id="todayBox"> </div>
+                <h2>City Date <img></h2>
+                <p>Temp:</p>
+                <p>Wind:</p>
+                <p>Humidity:</p>
+            </div>
+            <div id="forecastBox">
+                <div>
+                    <h2>5-Day Forecast:</h2>
+                    <div>
+                        <h3>Day 1</h3>
+                        <img>
+                        <p>Temp: <span></span> Degrees F</p>
+                        <p>Wind <span></span> MPH</p>
+                        <p>Humidity<span></span>%</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3>Day 2</h3>
+                        <img>
+                        <p>Temp: <span></span> Degrees F</p>
+                        <p>Wind <span></span> MPH</p>
+                        <p>Humidity<span></span>%</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3>Day 3</h3>
+                        <img>
+                        <p>Temp: <span></span> Degrees F</p>
+                        <p>Wind <span></span> MPH</p>
+                        <p>Humidity<span></span>%</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3>Day 4</h3>
+                        <img>
+                        <p>Temp: <span></span> Degrees F</p>
+                        <p>Wind <span></span> MPH</p>
+                        <p>Humidity<span></span>%</p>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <h3>Day 5</h3>
+                        <img>
+                        <p>Temp: <span></span> Degrees F</p>
+                        <p>Wind <span></span> MPH</p>
+                        <p>Humidity<span></span>%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </body>
 <script src='assets/script.js'></script>
