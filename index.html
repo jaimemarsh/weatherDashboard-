@@ -7,24 +7,34 @@
     <title>Weather Dashboard</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='assets/main.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <!-- bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assests/style.css" />
 </head>
 
 <body>
     <main>
-        <h1>Weather Dashboard</h1>
         <div>
-            <h1>Search for a City:</h1>
-            <div>
+            <h1>Weather Dashboard</h1>
+        </div>
+        <h1>Search for a City:</h1>
+        <div id="searchBox">
+            <div id="searchBar">
                 <input type="text" class="null" placeholder="Columbus...">
-                <div>
-                    <button type="button" class="btn btn-primary">Search</button>
-                </div>
             </div>
+            <div>
+                <button type="button" class="btn btn-primary">Search</button>
+            </div>
+            <div id="searchHistory"></div>
         </div>
         <div>
-            <div class="">
-            </div>
+            <div id="todayBox"> </div>
+            <div id="forecastBox"></div>
         </div>
     </main>
 </body>
