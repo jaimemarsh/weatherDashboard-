@@ -17,87 +17,108 @@
 </head>
 
 <body>
-    <main>
-        <div>
-            <h1>Weather Dashboard</h1>
-        </div>
-        <h2>Search for a City:</h2>
-        <div id="searchBox">
-            <div class="d-grid gap-2 col-2 p-1" id="searchBar">
-                <input type="text" class="null" placeholder="Columbus">
-            </div>
-            <div class="d-grid gap-2 col-2 p-1">
-                <button type="button" class="btn btn-primary">Search</button>
-            </div>
-            <div id="searchHistoryBox">
-                <ul>
-                    <li><button>Search History Box 1</button></li>
-                    <li><button>Search History Box 2</button></li>
-                    <li><button>Search History Box 3</button></li>
-                    <li><button>Search History Box 4</button></li>
-                    <li><button>Search History Box 5</button></li>
-                </ul>
-            </div>
-        </div>
-        <section>
-            <div>
-                <div id="todayBox"> </div>
-                <h2>City Date <img></h2>
-                <p>Temp:</p>
-                <p>Wind:</p>
-                <p>Humidity:</p>
-            </div>
-            <div id="forecastBox">
-                <div>
-                    <h2>5-Day Forecast:</h2>
-                    <div>
-                        <h3>Day 1</h3>
-                        <img>
-                        <p>Temp: <span></span> Degrees F</p>
-                        <p>Wind <span></span> MPH</p>
-                        <p>Humidity<span></span>%</p>
+    <!-- heading "Weather Dashboard" -->
+    <header class="text-white text-center p-3 bg-primary">
+        <h1><strong>Weather Dashboard</strong></h1>
+    </header>
+    <!-- full width container -->
+    <main class="container-fluid">
+        <!-- allows current forecast to be next to search input -->
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group" id="divclass">
+                    <h2><strong>Search for a City:</strong></h2>
+                    <input type="search" class="form-control" id="searchInput" placeholder="Columbus, OH">
+                    <div class="d-grid gap-2 my-3">
+                        <button type="button" class="btn btn-primary" id="searchButton">Search</button>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <h3>Day 2</h3>
-                        <img>
-                        <p>Temp: <span></span> Degrees F</p>
-                        <p>Wind <span></span> MPH</p>
-                        <p>Humidity<span></span>%</p>
+                <hr>
+                <ul class="list-group"></ul>
+            </div>
+
+            <div class="col-md-10">
+                <div class="mx-4 my-4">
+                    <div class="card currentCard" id="currentCard">
+                        <h5 class="card-title p-3 bg-primary text-white" id="currentCity"><strong>Current
+                                Forecast:</strong> </h5>
+                        <div id="current">
+                            <div id="crdCurrent">
+                                <div class="card-body">
+                                    <h2 id="currentTitle" class="card-title">Sun</h2>
+                                    <img id="currentIcon" class="mx-auto"
+                                        src="http://openweathermap.org/img/wn/13d@2x.png" alt="Weather Icon" />
+                                    <p id="currentTemp" class="card-text p-md">Temperature:</p>
+                                    <p id="currentDesc" class="card-text p-md">Conditions:</p>
+                                    <p id="currentWind" class="card-text p-md">Wind Speed MPH:</p>
+                                    <p id="currentHumidity" class="card-text p-md">Humidity:</p>
+                                    <p id="currentUvi" class="card-text p-md">UV Index:</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <h3>Day 3</h3>
-                        <img>
-                        <p>Temp: <span></span> Degrees F</p>
-                        <p>Wind <span></span> MPH</p>
-                        <p>Humidity<span></span>%</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h3>Day 4</h3>
-                        <img>
-                        <p>Temp: <span></span> Degrees F</p>
-                        <p>Wind <span></span> MPH</p>
-                        <p>Humidity<span></span>%</p>
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <h3>Day 5</h3>
-                        <img>
-                        <p>Temp: <span></span> Degrees F</p>
-                        <p>Wind <span></span> MPH</p>
-                        <p>Humidity<span></span>%</p>
+
+                <div class="mt-4">
+                    <div class="row"></div>
+                    <div class="card pb-5 pl-5">
+                        <h5 class="card-title p-3" id="weatherTitle">Five Day Forecast</h5>
+                        <div id="weekly" class="d-flex flex-row">
+                            <div class="card bg-primary mb-3 mx-1 crdWeekly">
+                                <div class="card-body text-white">
+                                    <h5 id="day1Title" class="card-title">Monday</h5>
+                                    <img id="day1Icon" src="http://openweathermap.org/img/wn/13d.png"
+                                        alt="Weather Icon" />
+                                    <p id="day2Desc" class="card-text"> Hi Lo Temp</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary mb-3 mx-1 crdWeekly">
+                                <div class="card-body text-white">
+                                    <h5 id="day2Title" class="card-title">Tuesday</h5>
+                                    <img id="day2Icon" src="http://openweathermap.org/img/wn/13d.png"
+                                        alt="Weather Icon" />
+                                    <p id="day3Desc" class="card-text"> Hi Lo Temp</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary mb-3 mx-1 crdWeekly">
+                                <div class="card-body text-white">
+                                    <h5 id="day3Title" class="card-title">Wednesday</h5>
+                                    <img id="day3Icon" src="http://openweathermap.org/img/wn/13d.png"
+                                        alt="Weather Icon" />
+                                    <p id="day4Desc" class="card-text"> Hi Lo Temp</p>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary mb-3 mx-1 crdWeekly">
+                                <div class="card-body text-white">
+                                    <h5 id="day4Title" class="card-title">Thursday</h5>
+                                    <img id="day5Icon" src="http://openweathermap.org/img/wn/13d.png"
+                                        alt="Weather Icon" />
+                                    <p id="day4Desc" class="card-text"> Hi Lo Temp</p>
+                                </div>
+                            </div>
+                            <div class="card bg-primary mb-3 mx-1 crdWeekly">
+                                <div class="card-body text-white">
+                                    <h5 id="day5Title" class="card-title">Friday</h5>
+                                    <img id="day5Icon" src="http://openweathermap.org/img/wn/13d.png"
+                                        alt="Weather Icon" />
+                                    <p id="day5Desc" class="card-text"> Hi Lo Temp</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Advanced Format DayJS -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/advancedFormat.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"></script> not sure if needed -->
+    <script src='assets/script.js'></script>
 </body>
-<script src='assets/script.js'></script>
 
 </html>
