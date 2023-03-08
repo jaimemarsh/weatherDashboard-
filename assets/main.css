@@ -1,1 +1,14 @@
 /* history buttons */
+button {
+    width: 300px;
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    margin: auto;
+    padding: 10px;
+    border: solid white;
+}
+
+button:hover {
+    background-color: #2e63ff95;
+}
