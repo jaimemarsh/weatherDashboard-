@@ -1,4 +1,4 @@
-let weatherApiKey = "1538098f5b9754856836564568af945f";
+
 //global variables
 let latitude;
 let longitude;
@@ -31,7 +31,7 @@ function editSearchInput() {
 
 function getCoordinates() {
     //weatherApiKey WORKS
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityChoice},USA&Appid=${weatherApiKey}`;
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityChoice},USA&Appid=c33d7e9c5e7e06d80507552604aaf5a5&units=imperial`;
     //API to JS
     return fetch(weatherUrl)
         .then(function (response1) {
@@ -54,7 +54,7 @@ function getCoordinates() {
 
 function allTheData(input) {
     // Retrreving the api data from onecall & setting it to a variable
-    let oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&Appid=" + weatherApiKey;
+    let oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&Appid=c33d7e9c5e7e06d80507552604aaf5a5&units=imperial";
     return fetch(oneCallUrl)
         .then(function (response) {
             if (response.ok) {
