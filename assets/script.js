@@ -1,4 +1,5 @@
-let weatherApiKey = "c33d7e9c5e7e06d80507552604aaf5a5";
+let weatherApiKey = "1538098f5b9754856836564568af945f";
+//global variables
 let latitude;
 let longitude;
 let cityChoice;
@@ -14,13 +15,13 @@ function editSearchInput() {
     if (city == "") {
         errorAlert.querySelector("#error").innerHTML = "Enter a city and state to see the weather!"
     } else {
+        //Converts the input to uppercase, runs allTheData function, then stores in ls
         if (city.includes(",")) {
             cityChoice = city.toUpperCase();
-            // function
+
             getCoordinates()
                 .then(() => allTheData())
                 .catch(() => errorAlert.querySelector("#error").innerHTML = "Error, please try again")
-            // function not defined yet
             storeCity();
         } else {
             errorAlert.querySelector("#error").innerHTML = "Type in your city and state name as formatted (Columbus, OH)"
@@ -29,7 +30,7 @@ function editSearchInput() {
 };
 
 function getCoordinates() {
-    // is this right? IT WORKS
+    //weatherApiKey WORKS
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityChoice},USA&Appid=${weatherApiKey}`;
     //API to JS
     return fetch(weatherUrl)
@@ -53,17 +54,15 @@ function getCoordinates() {
 
 function allTheData(input) {
     // Retrreving the api data from onecall & setting it to a variable
-    //FIX API KEY
-    // c33d7e9c5e7e06d80507552604aaf5a5
-    let allTheDataUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&Appid=" + weatherApiKey;
-    return fetch(allTheDataUrl)
+    let oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&Appid=" + weatherApiKey;
+    return fetch(oneCallUrl)
         .then(function (response) {
             if (response.ok) {
-                // looping over 5 days to display data for the 5-day-forecast
+                //looping over 5 days to display data for the 5-day-forecast
                 return response.json().then(function (data) {
                     for (let i = 1; i < 6; i++) {
                         let dayTitleCard = $(`#day${i}Title`);
-                        dayTitleCard.text(dayjs.unix(data.daily[i].dt).format('ddd MM/DD'));  //Using dayjs to display dates
+                        dayTitleCard.text(dayjs.unix(data.daily[i].dt).format('ddd    MM/DD'));  //Using dayjs to display dates
                         let dayIconCard = $(`#day${i}Icon`);
                         dayIconCard.attr("src", "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + ".png");
                         let dayDescCard = $(`#day${i}Desc`);
@@ -94,4 +93,41 @@ function allTheData(input) {
         })
 };
 
-// NEED PAST SEARCHES
+function storeCity() {
+    // retrieves the current array and parses it to JS
+    let cityArray = JSON.parse(localStorage.getItem("cityArray")) || [];
+    // when the array is more than 10 cities, push the newest search to the front and remove the 11th
+    if (cityArray.length > 9) {
+        cityArray.splice(0, 1);
+    }
+    //checks if the city is already in the array and does not push it again if so, otherwise it will
+    if (!cityArray.includes(cityChoice)) {
+        cityArray.push(cityChoice)
+        // sets the updated array as a JSON object
+        localStorage.setItem("cityArray", JSON.stringify(cityArray));
+        cityList();
+    }
+}
+
+function cityList() {
+    //removes all child nodes and content from the list-group element
+    let listEl = $(".list-group").empty();
+    cityArray = JSON.parse(localStorage.getItem("cityArray"));
+    if (cityArray) {
+        for (let city of cityArray) {
+            let btn = $("<button>", {
+                text: city
+            })
+            // places the most recent searched city at the top of the displayed list
+            let li = $('<li>').prepend(btn)
+            listEl.prepend(li);
+            btn.on('click', function () {
+                searchInput.val(city)
+                editSearchInput();
+
+            })
+        }
+    }
+};
+
+cityList();
